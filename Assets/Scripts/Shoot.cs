@@ -27,12 +27,16 @@ public class Shoot : MonoBehaviour {
 
 		if (Input.GetKeyDown("space") & (left == true))
 		{
-			Instantiate(bulletTwo, transform.position, transform.rotation);
+			Vector3 newPosition = transform.position;
+			newPosition.x -= 1;
+			Instantiate(bulletTwo, newPosition, transform.rotation);
 		}
 
 		if (Input.GetKeyDown("space") & (left == false))
 		{
-			Instantiate(bullet, transform.position, transform.rotation);
+			Vector3 newPosition = transform.position;
+			newPosition.x += 0.5f;
+			Instantiate(bullet, newPosition, transform.rotation);
 		}
 	}
 	

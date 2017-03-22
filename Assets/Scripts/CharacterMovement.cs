@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class CharacterMovement : MonoBehaviour {
 	public float speed;
-	public float forcePower;
 	public bool grounded;
+
+	private SpriteRenderer mySpriteRenderer;
+	private BoxCollider2D myBoxCollider;
 
 	// Use this for initialization
 	void Start () {
+		mySpriteRenderer = GetComponent<SpriteRenderer>();
+		myBoxCollider = GetComponent<BoxCollider2D>();
 		
 	}
 	
@@ -20,6 +24,20 @@ public class CharacterMovement : MonoBehaviour {
 	}
 
 	void Movement () {
+
+
+		if (Input.GetKeyDown(KeyCode.A))
+		{
+			mySpriteRenderer.flipX = true;
+			myBoxCollider.offset = new Vector2(0.7f, 0f);
+		}
+
+		if (Input.GetKeyDown(KeyCode.D))
+		{
+			mySpriteRenderer.flipX = false;
+			myBoxCollider.offset = new Vector2(-0.7f, 0f);
+		}
+
 		Vector3 newPosition = transform.position;
 		newPosition.x += Input.GetAxis("Horizontal") * speed * Time.deltaTime;
 		transform.position = newPosition;
@@ -33,7 +51,7 @@ public class CharacterMovement : MonoBehaviour {
 		{
 			if (rb.velocity.y <= 0)
 			{
-				rb.AddForce(new Vector2(0, 20), ForceMode2D.Impulse); 
+				rb.AddForce(new Vector2(0, 25), ForceMode2D.Impulse); 
 			}
 		}
 	}
