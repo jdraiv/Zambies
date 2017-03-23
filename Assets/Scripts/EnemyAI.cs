@@ -6,9 +6,11 @@ public class EnemyAI : MonoBehaviour {
 
 	public Transform target;
 	public float enemySpeed;
+	private GameObject Player;
 
 	// Use this for initialization
 	void Start () {
+		Player = GameObject.Find("Player");
 		
 	}
 	
@@ -18,12 +20,11 @@ public class EnemyAI : MonoBehaviour {
 	}
 
 	void findPlayer() {
-		transform.LookAt(target.position);
-		transform.Rotate(new Vector3(0,-90,0),Space.Self);
+		Vector3 playerPosition = Player.transform.position;
+		playerPosition.x -= 1;
+		transform.position = Vector2.MoveTowards(transform.position, playerPosition, enemySpeed * Time.deltaTime);
 
-		if (Vector3.Distance(transform.position, target.position)>1f)
-		{
-			transform.Translate(new Vector3(enemySpeed * Time.deltaTime,0,0));
-		}
 	}
+	
+
 }
