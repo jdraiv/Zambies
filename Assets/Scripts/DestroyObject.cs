@@ -17,4 +17,5 @@ public class DestroyObject : MonoBehaviour {
 	void OnBecameInvisible() {
 		Destroy(gameObject);
 	}
+	
 }
