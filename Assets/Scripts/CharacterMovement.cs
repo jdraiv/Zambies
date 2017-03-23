@@ -57,8 +57,8 @@ public class CharacterMovement : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D coll) {
-			grounded = true;
-		}
+		grounded = true;
+	}
 
 	void OnCollisionExit2D(Collision2D coll) {
 		grounded = false;
