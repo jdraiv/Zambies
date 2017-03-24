@@ -51,7 +51,7 @@ public class CharacterMovement : MonoBehaviour {
 		{
 			if (rb.velocity.y <= 0)
 			{
-				rb.AddForce(new Vector2(0, 25), ForceMode2D.Impulse); 
+				rb.AddForce(new Vector2(0, 30), ForceMode2D.Impulse); 
 			}
 		}
 	}

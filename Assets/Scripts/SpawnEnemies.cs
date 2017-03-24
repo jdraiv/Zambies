@@ -19,9 +19,10 @@ public class SpawnEnemies : MonoBehaviour {
 	void BrainEaters() {
 
 		Vector3 enemyPosition = transform.position;
-		int randomPosition = Random.Range(-9, -2);
+		int randomPosition = Random.Range(-14, 0);
 		enemyPosition.y += 1;
-		enemyPosition.x += randomPosition;
+		enemyPosition.x -= randomPosition;
+
 		Instantiate(enemy, enemyPosition, transform.rotation);
 	}
 }
